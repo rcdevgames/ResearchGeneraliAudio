@@ -98,7 +98,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    navigator.getUserMedia({ audio: true },
+    navigator.mediaDevices.getUserMedia({ audio: true },
       () => {
         console.log('Permission Granted');
         this.setState({ isBlocked: false });
