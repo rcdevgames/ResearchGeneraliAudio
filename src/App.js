@@ -98,16 +98,15 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    navigator.mediaDevices.getUserMedia({ audio: true },
-      () => {
-        console.log('Permission Granted');
-        this.setState({ isBlocked: false });
-      },
-      () => {
-        console.log('Permission Denied');
-        this.setState({ isBlocked: true })
-      },
-    );
+    navigator.mediaDevices.getUserMedia({ audio: true })
+    .then(() => {
+      console.log('Permission Granted');
+      this.setState({ isBlocked: false });
+    })
+    .catch(() => {
+      console.log('Permission Denied');
+      this.setState({ isBlocked: true })
+    })
     // this.getData();
   }
 
